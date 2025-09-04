@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciar Local Storage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            padding: 5px;
+            width: 300px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+        }
+        .output {
+            margin-top: 20px;
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Gerenciar Dados no Local Storage</h2>
+
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome">
+
+    <label for="ra">RA:</label>
+    <input type="text" id="ra">
+
+    <div>
+        <button onclick="salvarDados()">Salvar</button>
+        <button onclick="limparDados()">Limpar Storage</button>
+        <button onclick="carregarDados()">Recarregar Dados</button>
+    </div>
+
+    <div class="output" id="output"></div>
+
+    <script>
+        function salvarDados() {
+            const nome = document.getElementById("nome").value;
+            const ra = document.getElementById("ra").value;
+
+            localStorage.setItem("nome", nome);
+            localStorage.setItem("ra", ra);
+
+            alert("Dados salvos!");
+            mostrarDados();
+        }
+
+        function limparDados() {
+            localStorage.clear();
+            document.getElementById("nome").value = "";
+            document.getElementById("ra").value = "";
+            mostrarDados();
+            alert("Storage limpo!");
+        }
+
+        function carregarDados() {
+            if (localStorage.getItem("nome")) {
+                document.getElementById("nome").value = localStorage.getItem("nome");
+            }
+            if (localStorage.getItem("ra")) {
+                document.getElementById("ra").value = localStorage.getItem("ra");
+            }
+            mostrarDados();
+        }
+
+        function mostrarDados() {
+            const output = document.getElementById("output");
+            const nome = localStorage.getItem("nome") || "<vazio>";
+            const ra = localStorage.getItem("ra") || "<vazio>";
+
+            output.innerHTML = `<strong>Dados Atuais no Storage:</strong><br>
+                                Nome: ${nome} <br>
+                                RA: ${ra}`;
+        }
+
+        // Carrega os dados automaticamente ao abrir a página
+        window.onload = carregarDados;
+    </script>
+
+</body>
+</html>

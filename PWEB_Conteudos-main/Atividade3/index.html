@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 2 - Privacidade e Segurança</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Atividade 2 – Privacidade e Segurança</h1>
+        <nav>
+            <ul>
+                <li><a href="#introducao">Introdução</a></li>
+                <li><a href="#oauth">OAuth 2.0</a></li>
+                <li><a href="#jwt">JWT</a></li>
+                <li><a href="#outforAut">Outras Autenticações</a></li>
+                <li><a href="#xss">XSS</a></li>
+                <li><a href="#csrf">CSRF</a></li>
+                <li><a href="#seo">SEO</a></li>
+                <li><a href="#boas-praticas">Boas Práticas</a></li>
+                <li><a href="#conclusao">Conclusão</a></li>
+                <li><a href="#referencias">Referências</a></li>
+            </ul>
+        </nav>
+    </header>
+ 
+    <main>
+        <section id="introducao">
+            <h2>Introdução</h2>
+            <p>A privacidade e a segurança da informação são pilares essenciais no desenvolvimento de aplicações modernas, garantindo a proteção de dados pessoais, a integridade dos sistemas e a confiança nas comunicações digitais. Para enfrentar o aumento dos ataques cibernéticos, é imprescindível adotar mecanismos de autenticação robustos, como OAuth e JSON Web Tokens (JWT), bem como implementar estratégias eficazes contra vulnerabilidades como XSS (Cross-Site Scripting) e CSRF (Cross-Site Request Forgery). Paralelamente, práticas de SEO (Search Engine Optimization) asseguram não apenas maior visibilidade e relevância das páginas na web, mas também reforçam a credibilidade de organizações comprometidas com ambientes virtuais seguros. Essa integração entre autenticação, proteção contra ameaças e otimização de presença digital oferece uma base sólida para aplicações confiáveis, seguras e bem posicionadas no mercado.</p>
+        </section>
+
+        <section id="oauth">
+            <h2>OAuth 2.0</h2>
+            <p>O OAuth é um protocolo de autorização que permite que aplicações acessem recursos protegidos de forma segura, sem a necessidade de expor as credenciais do usuário. Ele delega a autenticação para um servidor confiável e retorna um token de acesso com permissões específicas, garantindo que terceiros possam interagir com os serviços de forma controlada. Este protocolo é amplamente utilizado em integra-ções com redes sociais e outros serviços de terceiros, permitindo operações seguras entre sistemas.
+                Os fluxos principais do OAuth 2.0 incluem Authorization Code, recomendado por ser mais seguro; Client Credentials, utilizado para comunicação entre servidores; Resource Owner Password, que permite autenticação com credenciais do usuário; e Implicit, indicado para aplicações de página única (SPAs). Entre suas vantagens, des-tacam-se a segurança, flexibilidade e ampla adoção por grandes provedores, como Google, Facebook e GitHub. Entretanto, a implementação pode ser complexa, exi-gindo atenção especial ao fluxo de tokens e permissões (Skills Tecnológicas; devsja-va.com.br; apidog.com).
+            </p>
+        </section>
+ 
+        <section id="jwt">
+            <h2>JWT (JSON Web Token)</h2>
+            <p>O JWT é um padrão para representar informações de forma compacta, segura e assinada digitalmente, permitindo autenticação stateless, especialmente útil para APIs RESTful. Ele possibilita que servidores validem requisições sem a necessidade de armazenar sessões no back-end, mantendo a integridade e autenticidade dos da-dos.
+                O token é composto por três partes principais: o header, que indica o tipo de token e o algoritmo de assinatura; o payload, que contém as claims, como identifica-ção do usuário, permissões e tempo de expiração; e a signature, que garante a inte-gridade do token. As principais vantagens incluem escalabilidade, leveza e indepen-dência de sessão. Entre as desvantagens, destaca-se a dificuldade de revogação e o risco caso o token seja exposto (Skills Tecnológicas; devsjava.com.br; APIBrasil).
+            </p>
+        </section>
+
+        <section id="outforAut">
+            <h2>Outras formas de autenticação</h2>
+            <p>Além do OAuth e do JWT, existem outras formas de autenticação, como API Keys e Basic Authentication. As API Keys são simples e rápidas de implementar, po-rém oferecem segurança reduzida e delegação limitada, sendo mais adequadas para aplicações internas ou de baixo risco. A Basic Authentication, por sua vez, é antiqua-da e fácil de implementar, mas apresenta vulnerabilidades significativas se utilizada sem HTTPS e não oferece flexibilidade para gerenciamento de permissões e roles (Skills Tecnológicas; Roberto Dias Duarte).
+            </p>
+        </section>
+ 
+        <section id="xss">
+            <h2>XSS (Cross-Site Scripting)</h2>
+            <p>O XSS consiste na injeção de scripts maliciosos em páginas web, permitindo que um atacante execute ações não autorizadas ou acesse informações sensíveis, como tokens de autenticação e dados pessoais. Essa vulnerabilidade compromete a integridade e a privacidade das aplicações, sendo uma das ameaças mais frequentes em ambientes web modernos.
+                A prevenção eficaz do XSS envolve a validação rigorosa e sanitização de en-tradas de usuários, evitando que códigos maliciosos sejam interpretados pelo nave-gador. Além disso, a adoção de políticas de segurança de conteúdo (Content Security Policy – CSP) e o uso de frameworks modernos ajudam a reduzir significativamente a superfície de ataque, fortalecendo a proteção das aplicações (Skills Tecnológicas; APIBrasil).
+            </p>
+        </section>
+ 
+        <section id="csrf">
+            <h2>CSRF (Cross-Site Request Forgery)</h2>
+            <p>O CSRF ocorre quando um site malicioso induz o navegador de um usuário autenticado a executar ações indesejadas em um sistema confiável, explorando a confiança que o servidor deposita no navegador. Essa vulnerabilidade pode resultar em alterações de dados ou execução de operações sem consentimento do usuário.
+                As defesas recomendadas incluem o uso de tokens anti-CSRF, a verificação de headers de origem (Origin/Referer) e a configuração adequada de cookies com a flag SameSite. O uso de tokens JWT no cabeçalho Authorization, no modelo Bearer, reduz ainda mais o risco, pois esses tokens não são enviados automaticamente como cookies, diminuindo a possibilidade de exploração por sites terceiros (Skills Tecnoló-gicas; APIBrasil). A mitigação do XSS deve ser prioridade, pois, se essa vulnerabili-dade estiver presente, qualquer proteção contra CSRF pode ser insuficiente.
+            </p>
+        </section>
+ 
+        <section id="seo">
+            <h2>4 - SEO (Search Engine Optimization)</h2>
+            <h3>4.1 -Importância do SEO</h3>
+            <p>O SEO é essencial para aumentar a visibilidade de sites e aplicações, permitindo que conteúdos relevantes sejam encontrados nos principais mecanismos de busca. 
+                Além disso, contribui para a relevância, ao atrair o público-alvo adequado no momento correto, e fortalece a competitividade, destacando a organização em um ambiente digital altamente saturado.
+            </p>
+            <h3>4.2 - Fatores principais de SEO</h3>
+            <h4>4.2.1 -	Conteúdo Otimizado (On-Page)</h4>
+            <p>A criação de conteúdo otimizado envolve o uso de palavras-chave relevantes, títulos bem estruturados (H1-H6), URLs amigáveis, meta-tags precisas e textos originais, úteis e atualizados. Uma estrutura clara e um design responsivo garantem uma experiência de usuário de qualidade, impactando positivamente o ranking nos mecanismos de busca.
+            </p>
+        </section>
+ 
+        <section id="boas-praticas">
+            <h2>Boas Práticas Complementares em APIs</h2>
+            <p>A validação rigorosa de entrada e a sanitização de dados evitam vulnerabilidades como injeções SQL...</p>
+        </section>
+ 
+        <section id="conclusao">
+            <h2>Conclusão</h2>
+            <p>A segurança digital e a otimização para mecanismos de busca constituem forças complementares...</p>
+        </section>
+ 
+        <section id="referencias">
+            <h2>Referências</h2>
+            <ul>
+                <li><a href="https://skillstecnologicas.com/autenticacao-em-apis/">Skills Tecnológicas</a></li>
+                <li><a href="https://devsjava.com/">DevsJava</a></li>
+                <li><a href="https://apibrasil.com.br/">API Brasil</a></li>
+                <li><a href="https://www.jwt.io/introduction">JWT.io</a></li>
+                <li><a href="https://skipp.com.br/guia-seo/">Skipp</a></li>
+            </ul>
+        </section>
+    </main>
+ 
+    <footer>
+        <p>Thiago Enzo Kagiyama Correa - Fatec Sorocaba - 2025</p>
+    </footer>
+ 
+    <script>
+        // Scroll suave
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+ 
+        // Destacar seção ativa no menu
+        const sections = document.querySelectorAll('main section');
+        const navLinks = document.querySelectorAll('nav a');
+ 
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 60;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+ 
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
