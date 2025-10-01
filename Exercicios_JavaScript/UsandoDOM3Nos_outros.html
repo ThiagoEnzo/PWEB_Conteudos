@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propriedades de Nós no JavaScript</title>
+</head>
+<body>
+    <div id="container">
+        Olá!
+        <p id="paragrafo1">Este é o primeiro parágrafo.</p>
+        <span>Este é um span.</span>
+        <ul id="lista">
+            <li class="item-lista primeiro">Item 1</li>
+            <li class="item-lista">Item 2</li>
+            <li class="item-lista ultimo">Item 3</li>
+        </ul>
+        <p id="paragrafo2">Este é o segundo parágrafo.</p>
+        </div>
+
+    <script>
+        const container = document.getElementById('container');
+        const paragrafo1 = document.getElementById('paragrafo1');
+        const spanElement = document.querySelector('span');
+        const lista = document.getElementById('lista');
+        const primeiroItemLista = document.querySelector('#lista .primeiro');
+        const ultimoItemLista = document.querySelector('#lista .ultimo');
+        const paragrafo2 = document.getElementById('paragrafo2');
+
+        console.log("--- Propriedades do elemento #paragrafo1 ---");
+        console.log("parentNode:", paragrafo1.parentNode);
+        console.log("firstChild (de parentNode):", paragrafo1.parentNode.firstChild);
+        console.log("lastChild (de parentNode):", paragrafo1.parentNode.lastChild);
+        console.log("previousSibling:", paragrafo1.previousSibling);
+        console.log("nextSibling:", paragrafo1.nextSibling);
+        console.log("children (de parentNode):", paragrafo1.parentNode.children);
+        console.log("childNodes (de parentNode):", paragrafo1.parentNode.childNodes);
+
+        console.log("\n--- Propriedades do elemento #lista ---");
+        console.log("firstChild:", lista.firstChild);
+        console.log("lastChild:", lista.lastChild);
+        console.log("children:", lista.children);
+        console.log("childNodes:", lista.childNodes);
+
+        console.log("\n--- Propriedades do primeiro item da lista (.primeiro) ---");
+        console.log("parentNode:", primeiroItemLista.parentNode);
+        console.log("previousSibling:", primeiroItemLista.previousSibling);
+        console.log("nextSibling:", primeiroItemLista.nextSibling);
+
+        console.log("\n--- Propriedades do último item da lista (.ultimo) ---");
+        console.log("previousSibling:", ultimoItemLista.previousSibling);
+        console.log("nextSibling:", ultimoItemLista.nextSibling);
+
+        function obterIrmaos(elemento) {
+            const irmaos = [];
+            if (elemento.parentNode) {
+                const filhos = elemento.parentNode.children;
+                for (let i = 0; i < filhos.length; i++) {
+                    if (filhos[i] !== elemento) {
+                        irmaos.push(filhos[i]);
+                    }
+                }
+            }
+            return irmaos;
+        }
+
+        console.log("\n--- Irmãos do elemento span ---");
+        console.log(obterIrmaos(spanElement));
+    </script>
+</body>
+</html>

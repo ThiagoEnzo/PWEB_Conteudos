@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Teste de Algumas Igualdades</title>
+
+
+</head>
+
+<body>
+
+    <script>
+        let x1;
+        let y1;
+
+        if (x1 === y1) {
+            alert("teste1 - verdadeiro");
+        } else {
+            alert("teste1 - falso");
+        }
+
+        if (Object.is(x1, y1)) {
+            alert("teste2 - verdadeiro")
+        } else {
+            alert("teste2 - falso");
+        }
+
+        let x2 = null;
+        let y2 = null;
+
+        if (x2 === y2) {
+            alert("teste3 - verdadeiro");
+        } else {
+            alert("teste3 - falso");
+        }
+
+        if (Object.is(x2, y2)) {
+            alert("teste4 - verdadeiro")
+        } else {
+            alert("teste4 - falso");
+        }
+
+
+        let x3 = true;
+        let y3 = true;
+
+
+        if (x3 === y3) {
+            alert("teste5 - verdadeiro");
+        } else {
+            alert("teste5 - falso");
+        }
+
+        if (Object.is(x3, y3)) {
+            alert("teste6 - verdadeiro")
+        } else {
+            alert("teste6 - falso");
+        }
+
+        let x4 = "foo";
+        let y4 = "foo";
+
+
+        if (x4 === y4) {
+            alert("teste7 - verdadeiro");
+        } else {
+            alert("teste7 - falso");
+        }
+
+        if (Object.is(x4, y4)) {
+            alert("teste8 - verdadeiro")
+        } else {
+            alert("teste8 - falso");
+        }
+
+
+        let x5 = {
+            foo: "bar"
+        };
+        let y5 = x1;
+
+
+        if (x5 === y5) {
+            alert("teste9 - verdadeiro");
+        } else {
+            alert("teste9 - falso");
+        }
+
+        if (Object.is(x5, y5)) {
+            alert("teste10 - verdadeiro")
+        } else {
+            alert("teste10 - falso");
+        }
+
+
+        let x6 = 0;
+        let y6 = 0;
+
+
+        if (x6 === y6) {
+            alert("teste11 - verdadeiro");
+        } else {
+            alert("teste11 - falso");
+        }
+
+        if (Object.is(x6, y6)) {
+            alert("teste12 - verdadeiro")
+        } else {
+            alert("teste12 - falso");
+        }
+
+
+        let x7 = 0;
+        let y7 = false;
+
+
+        if (x7 === y7) {
+            alert("teste13 - verdadeiro");
+        } else {
+            alert("teste13 - falso");
+        }
+
+        if (Object.is(x7, y7)) {
+            alert("teste14 - verdadeiro")
+        } else {
+            alert("teste14 - falso");
+        }
+
+        let x8 = "";
+        let y8 = false;
+
+
+        if (x8 === y8) {
+            alert("teste15 - verdadeiro");
+        } else {
+            alert("teste15 - falso");
+        }
+
+        if (Object.is(x8, y8)) {
+            alert("teste16 - verdadeiro")
+        } else {
+            alert("teste16 - falso");
+        }
+
+        let x9 = {
+            foo: "bar"
+        };
+        let y9 = {
+            foo: "bar"
+        };
+
+
+        if (x9 === y9) {
+            alert("teste17 - verdadeiro");
+        } else {
+            alert("teste17 - falso");
+        }
+
+        if (Object.is(x9, y9)) {
+            alert("teste18 - verdadeiro")
+        } else {
+            alert("teste18 - falso");
+        }
+
+        let x10 = +0;
+        let y10 = -0;
+
+        if (x10 === y10) {
+            alert("teste19 - verdadeiro");
+        } else {
+            alert("teste19 - falso");
+        }
+
+        if (Object.is(x10, y10)) {
+            alert("teste20 - verdadeiro")
+        } else {
+            alert("teste20 - falso");
+        }
+
+        let x11 = +0;
+        let y11 = +0;
+
+
+        if (x11 === y11) {
+            alert("teste20a - verdadeiro");
+        } else {
+            alert("teste20a - falso");
+        }
+
+        if (Object.is(x11, y11)) {
+            alert("teste20b - verdadeiro")
+        } else {
+            alert("teste20b - falso");
+        }
+
+        let x12 = 0 / 0;//NAN
+        let y12 = 0 / 0;// NAN
+
+
+        if (x12 === y12) {
+            alert("teste21 - verdadeiro");
+        } else {
+            alert("teste21 - falso");
+        }
+
+        if (Object.is(x12, y12)) {
+            alert("teste22 - verdadeiro")
+        } else {
+            alert("teste22 - falso");
+        }
+
+
+        let x13 = {
+            nome: "João"
+        };
+        let y13 = {
+            nome: "João"
+        };
+
+
+        if (x13 === y13) {
+            alert("teste23 - verdadeiro")
+        } else {
+            alert("teste24 - falso");
+        }
+
+
+        let x14 = {
+            nome: "João"
+        };
+        let y14 = x14;
+
+        if (x14 === y14) {
+            alert("teste25 - verdadeiro")
+        } else {
+            alert("teste26 - falso");
+        }
+    </script>
+</body>
+
+</html>

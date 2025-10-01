@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout com Iframes e Flexbox</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .cabecalho {
+            height: 20%; /* Altura para o cabeçalho */
+   ;
+        }
+
+        .conteudo-principal {
+            display: flex;
+            flex-grow: 1; /* Ocupa o espaço restante */
+        }
+
+        .coluna-esquerda {
+            width: 30%;
+        
+        }
+
+        .coluna-direita {
+            flex-grow: 1; /* Ocupa o espaço restante na linha */
+          
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 10px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="cabecalho">
+            <iframe src="UsandoDOM11linha1.html"></iframe>
+        </div>
+        <div class="conteudo-principal">
+            <div class="coluna-esquerda">
+                <iframe src="UsandoDOM11coluna1.html"></iframe>
+            </div>
+            <div class="coluna-direita">
+                <iframe src="UsandoDOM11coluna2.html"></iframe>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
